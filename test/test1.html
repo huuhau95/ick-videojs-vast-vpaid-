@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>客户管理</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="Cache-Control" content="no-store" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="http://xmostg.optimix.asia/stylesheets/xmo/application.css?9250">
+	<link rel="stylesheet" type="text/css" href="http://xmostg.optimix.asia/stylesheets/xmo/xmo_components.css?9250">
+
+
+	<link rel="stylesheet" type="text/css" href="stylesheets/chosen/chosen.css">
+
+	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+
+	
+	 <script type="text/javascript" src="js/chosen.jquery.min.js"></script>
+	<style type="text/css">
+		.hide{display: none!important;}
+	</style>
+	
+</head>
+    <body>
+    	<div id="divmain" style="position:relative"><div id="test"></div></div>
+    	<div class="container">
+	    		<select class="select_all select span5 chzn-select" style="width:500px;" data-placeholder="请选择地域"  multiple="multiple" name="chosen_test" data-old="">
+		      		  	<option value="1,2,3,4,5" >Tanx,Megamedia,Allyes,Vamaker,Accuen</option>
+	                    <option value="321">google</option>
+	                     <option value="12">other</option>
+	                    <option value="1" class="special hide">Tanx</option>
+	                    <option value="2" class="special hide">Megamedia</option>
+	                    <option value="3" class="special hide">Allyes</option>
+	                    <option value="4" class="special hide">Vamaker</option>
+	                    <option value="5" class="special hide">Accuen</option>
+					</select>
+		</div>
+
+		
+		
+    </body>
+    <script type="text/javascript">
+    	var chosen_val;
+    	var test 
+    	$(function(){
+    		$("[name='chosen_test']").chosen();
+    		chosen_val=["1,2,4"];
+    		$(".select_all").change();
+    		
+    		var tt=function(e){
+    			 e = e||window.event; 
+    			var target = e.target||e.srcElement; 
+
+    			alert(target);
+    		}
+    		// test= document.createElement('div');
+    		// test.innerHTML='<a href="www.baidu.com" target="_blank"><iframe id="ss"><body onclick="alert(2)">12321</body></iframe></a>';
+    		// $("#divmain").prepend(test);
+    		
+    		var adData={
+    			"container":document.getElementById("divmain"),
+    			"link":'<a href="www.baidu.com" target="_blank">12312312312</a>',
+    			"id":"ttt",
+    			"width":"300",
+    			"height":"500",
+    			"domain":"baidu"
+    		}
+    		var doc=document,win=window,admax={};
+    		test(adData);
+
+			
+    		function test(adData){
+    			
+
+    			var objcon = adData.container;
+				var content = adData.html ? adData.html : "<html><head><head><body style='padding:0px;margin:0px;'><div id='click'>" + adData.link + "</div></body></html>";
+				var ifrId = "admax-outer-iframe_" + adData.id;
+				var n_ifr = '<iframe id="' + ifrId + '" width="' + adData.width + '" height="' + adData.height + '" style="display:none"';
+				var ifr_src = " src=\"javascript:void((function(){try{var d=document;d.open();d.domain='" + doc.domain + "';d.write('');d.close();}catch(e){}})())\"";
+				var ifr_sty = ' border="0" frameborder="0" scrolling="no" marginwidth="0" allowTransparency="true" marginheight="0"  style="border: 0pt none;"></iframe>';
+				(function x(count) {
+					if (count > 10) {
+						admax.isFailed = false;
+						return false;
+					}
+					var ifr = n_ifr;
+					if (win.navigator.userAgent.toLowerCase().indexOf("msie") > -1 && doc.domain !== doc.location.hostname) {
+						ifr += ifr_src;
+					}
+					ifr += ifr_sty;
+					objcon.firstChild.innerHTML = ifr;
+					var tempIfr = doc.getElementById(ifrId);
+					var ifr_doc = tempIfr.contentWindow.document;
+					win.setTimeout(function() {
+						try {
+							tempIfr = doc.getElementById(ifrId);
+							ifr_doc = tempIfr.contentWindow.document;
+							
+							ifr_doc.open("text/html", "replace");
+							ifr_doc.write(content);
+							win.setTimeout(function() {
+								ifr_doc.close();
+
+							}, 250);
+							tempIfr.style.display = "";
+							if (tempIfr.style.display === "none") {
+								win.setTimeout(function() {
+									tempIfr.style.display = "";
+								}, 200);
+							}
+							admax.isFailed = true;
+						} catch (F) {
+							tempIfr.parentNode.removeChild(tempIfr);
+							ifr = n_ifr + ifr_src + ifr_sty;
+							objcon.firstChild.innerHTML = ifr;
+							if (!count) {
+								count = 1;
+							} else {
+								count++;
+							}
+							x(count);
+						}
+					}, 200);
+					
+				})();
+				var ifrId = "admax-outer-iframe_" + adData.id;
+	    		var tempIfr = doc.getElementById(ifrId);
+	    		tempIfr.onload = tempIfr.onreadystatechange = function() {
+				     if (this.readyState && this.readyState != 'complete') return;
+				     else {
+				         var ifr_doc = tempIfr.contentWindow.document;	
+						var click = ifr_doc.getElementsByTagName("body")[0];
+						var clickTest = function(){
+							alert(1);
+						}
+						click.onclick=function(){
+							alert(1);
+						};
+				     }
+				}
+    		}
+
+    	})
+		  $(document).on('change','.select_all',function(){
+		      var valAry = chosen_val || $(this).val();//["1,2,3,4,5",1,2,3,4,5] or [9,"1,2,3,4"] or [1,2,3,4]
+		      if(!valAry) return;
+		      var old = $(this).attr('data-old') || '';//1,2,3,4,5 or 9 or 1,2,3,4,5
+		      var oldArr = old.split(",");
+		      var newStr = "";
+		      $(this).find(".hide:not(.special)").removeClass("hide");
+		      var isdesrease = (old && old.split(",").length>valAry.length);//true desc,false inc
+			if (isdesrease) {
+				//减少
+				newStr=","+valAry.join(",");
+			}else{
+		     	 //增加
+			      for (var i = 0; i < valAry.length; i++) {
+			      	var value = valAry[i];
+			      	var values = value.split(",");
+			      	newStr+=",";
+				      	//代表是多选混合选项
+				      	if (values.length>1) {
+				      		if(old.indexOf(value)>-1 &&  old!=value){
+					      		continue;
+					      	}
+				      		newStr +=values;
+				      		//混合选项隐藏
+				      		$(this).find("option[value='"+value+"']").addClass("hide");
+				      		break;
+				      	//如果是其他，只有他
+				      	}else{
+				      		if($.inArray(value,oldArr)==-1){
+				      			newStr =","+value;
+				      			break;
+				      		}
+				      	}
+				    }
+			  }
+		      if (newStr) {
+			      $(this).attr('data-old',newStr.substring(1));
+			      $(this).val(newStr.substring(1).split(",")).trigger("liszt:updated");
+			      chosen_val="";
+			  }	
+		    })
+    </script>
+</html>
+

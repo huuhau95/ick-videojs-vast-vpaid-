@@ -1,0 +1,114 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'i', 'videojs-vast-vpaid' ]
+2 info using npm@2.7.5
+3 info using node@v0.12.2
+4 verbose node symlink /usr/local/bin/node
+5 silly cache add args [ 'videojs-vast-vpaid', null ]
+6 verbose cache add spec videojs-vast-vpaid
+7 silly cache add parsed spec { raw: 'videojs-vast-vpaid',
+7 silly cache add   scope: null,
+7 silly cache add   name: 'videojs-vast-vpaid',
+7 silly cache add   rawSpec: '',
+7 silly cache add   spec: '*',
+7 silly cache add   type: 'range' }
+8 verbose addNamed videojs-vast-vpaid@*
+9 silly addNamed semver.valid null
+10 silly addNamed semver.validRange *
+11 silly addNameRange { name: 'videojs-vast-vpaid', range: '*', hasData: false }
+12 silly mapToRegistry name videojs-vast-vpaid
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/videojs-vast-vpaid
+16 verbose addNameRange registry:https://registry.npmjs.org/videojs-vast-vpaid not in flight; fetching
+17 verbose request uri https://registry.npmjs.org/videojs-vast-vpaid
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 09:40:54
+20 verbose request id d2791268d322199c
+21 http request GET https://registry.npmjs.org/videojs-vast-vpaid
+22 http 200 https://registry.npmjs.org/videojs-vast-vpaid
+23 silly get cb [ 200,
+23 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+23 silly get     etag: '"1UYPOB9VTKWAZST9XMCSTCL7W"',
+23 silly get     'content-type': 'application/json',
+23 silly get     'content-encoding': 'gzip',
+23 silly get     'cache-control': 'max-age=300',
+23 silly get     'content-length': '11850',
+23 silly get     'accept-ranges': 'bytes',
+23 silly get     date: 'Thu, 04 Aug 2016 01:40:53 GMT',
+23 silly get     via: '1.1 varnish',
+23 silly get     age: '0',
+23 silly get     connection: 'keep-alive',
+23 silly get     'x-served-by': 'cache-ams4124-AMS',
+23 silly get     'x-cache': 'MISS',
+23 silly get     'x-cache-hits': '0',
+23 silly get     'x-timer': 'S1470274852.783359,VS0,VE909',
+23 silly get     vary: 'Accept-Encoding' } ]
+24 verbose get saving videojs-vast-vpaid to /Users/Jacob/.npm/registry.npmjs.org/videojs-vast-vpaid/.cache.json
+25 silly addNameRange number 2 { name: 'videojs-vast-vpaid', range: '*', hasData: true }
+26 silly addNameRange versions [ 'videojs-vast-vpaid',
+26 silly addNameRange   [ '0.0.2',
+26 silly addNameRange     '0.0.30',
+26 silly addNameRange     '0.0.31',
+26 silly addNameRange     '0.0.40',
+26 silly addNameRange     '0.0.41',
+26 silly addNameRange     '0.0.60',
+26 silly addNameRange     '0.1.4',
+26 silly addNameRange     '0.1.5',
+26 silly addNameRange     '0.1.6',
+26 silly addNameRange     '0.1.7',
+26 silly addNameRange     '0.1.9',
+26 silly addNameRange     '0.1.22',
+26 silly addNameRange     '0.1.23',
+26 silly addNameRange     '0.1.24',
+26 silly addNameRange     '2.0.0',
+26 silly addNameRange     '1.0.0',
+26 silly addNameRange     '1.0.1',
+26 silly addNameRange     '1.0.2',
+26 silly addNameRange     '1.0.3',
+26 silly addNameRange     '1.0.4',
+26 silly addNameRange     '1.0.5',
+26 silly addNameRange     '1.1.0',
+26 silly addNameRange     '1.2.0',
+26 silly addNameRange     '1.2.1',
+26 silly addNameRange     '1.2.2',
+26 silly addNameRange     '1.2.3',
+26 silly addNameRange     '1.3.0',
+26 silly addNameRange     '2.0.1' ] ]
+27 verbose addNamed videojs-vast-vpaid@2.0.1
+28 silly addNamed semver.valid 2.0.1
+29 silly addNamed semver.validRange 2.0.1
+30 silly mapToRegistry name videojs-vast-vpaid
+31 silly mapToRegistry using default registry
+32 silly mapToRegistry registry https://registry.npmjs.org/
+33 silly mapToRegistry uri https://registry.npmjs.org/videojs-vast-vpaid
+34 verbose addRemoteTarball https://registry.npmjs.org/videojs-vast-vpaid/-/videojs-vast-vpaid-2.0.1.tgz not in flight; adding
+35 verbose addRemoteTarball [ 'https://registry.npmjs.org/videojs-vast-vpaid/-/videojs-vast-vpaid-2.0.1.tgz',
+35 verbose addRemoteTarball   '2665aff12e1410ab5fbed3b64462c3c20633b71b' ]
+36 info retry fetch attempt 1 at 09:40:57
+37 info attempt registry request try #1 at 09:40:57
+38 http fetch GET https://registry.npmjs.org/videojs-vast-vpaid/-/videojs-vast-vpaid-2.0.1.tgz
+39 http fetch 200 https://registry.npmjs.org/videojs-vast-vpaid/-/videojs-vast-vpaid-2.0.1.tgz
+40 info retry will retry, error on last attempt: Error: read ECONNRESET
+41 info retry will retry, error on last attempt: Error: read ECONNRESET
+42 silly fetchAndShaCheck shasum 2665aff12e1410ab5fbed3b64462c3c20633b71b
+43 verbose stack Error: shasum check failed for /var/folders/w5/6x2f72bn19lfd6p6chwjkkm00000gp/T/npm-69677-4fd664d0/registry.npmjs.org/videojs-vast-vpaid/-/videojs-vast-vpaid-2.0.1.tgz
+43 verbose stack Expected: 2665aff12e1410ab5fbed3b64462c3c20633b71b
+43 verbose stack Actual:   65f70c90d26b3c21540409268ba2f8c7c96ac15a
+43 verbose stack From:     https://registry.npmjs.org/videojs-vast-vpaid/-/videojs-vast-vpaid-2.0.1.tgz
+43 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/sha/index.js:38:8
+43 verbose stack     at ReadStream.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/sha/index.js:85:7)
+43 verbose stack     at ReadStream.emit (events.js:129:20)
+43 verbose stack     at _stream_readable.js:908:16
+43 verbose stack     at process._tickCallback (node.js:355:11)
+44 verbose cwd /Users/Jacob/Documents/work/tomcat-static/webapps/videojs-vast-vpaid
+45 error Darwin 14.0.0
+46 error argv "node" "/usr/local/bin/npm" "i" "videojs-vast-vpaid"
+47 error node v0.12.2
+48 error npm  v2.7.5
+49 error shasum check failed for /var/folders/w5/6x2f72bn19lfd6p6chwjkkm00000gp/T/npm-69677-4fd664d0/registry.npmjs.org/videojs-vast-vpaid/-/videojs-vast-vpaid-2.0.1.tgz
+49 error Expected: 2665aff12e1410ab5fbed3b64462c3c20633b71b
+49 error Actual:   65f70c90d26b3c21540409268ba2f8c7c96ac15a
+49 error From:     https://registry.npmjs.org/videojs-vast-vpaid/-/videojs-vast-vpaid-2.0.1.tgz
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]

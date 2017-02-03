@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <link rel="stylesheet" type="text/css" href="http://xmostg.optimix.asia/bootstrap/css/bootstrap.css?9300">
+    <link rel="stylesheet" type="text/css" href="http://xmostg.optimix.asia/stylesheets/xmo/xmo_components.css?9300">
+    <script type="text/javascript" src="http://xmostg.optimix.asia/javascripts/js/jquery-1.7.1.min.js?9300"></script>
+    <script type="text/javascript" src="http://xmostg.optimix.asia/bootstrap/js/bootstrap.min.js?9300"></script>
+</head>
+ <style type="text/css">
+ /*reset bootstrap*/
+.btn-iclick .btn{
+  display: inline-block;
+  padding: 5px 0px 5px 15px;
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background: none!important;
+  border: 1px solid #dfdfdf;
+  border-radius: 4px 4px;
+  outline: 0;
+  color:#333!important;
+  min-height: 30px;
+  min-width: 80px;
+}
+
+.btn-iclick .btn:hover,
+.btn-iclick .btn:focus,
+.btn-iclick .btn.focus {
+  color: #333;
+  text-decoration: none;
+}
+.btn-iclick .btn:active,
+.btn-iclick .btn.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+          box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+.dropdown{position: relative;}
+.btn-iclick .dropdown-menu{
+    border-radius: 4px;
+    min-width: 80px!important;
+    background-color: #fff;
+    color: #333;
+}
+.btn-iclick .dropdown-menu a{
+    color: #333;
+}
+.btn-iclick .caret {
+    margin-top: 6px!important;
+    margin-left: 6px!important;
+}
+.btn-iclick .icon-setup{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+ </style>
+<body>
+    <div style="width:300px;height:300px;margin:auto;">
+        <div class="dropdown btn-iclick">
+            <i class="icon-setup icon_act"></i>
+            <input name="status" type="hidden" value="Run" onchange="doAjax(this)"/>
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Edit
+            <span class="caret arrow-down"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li data-value="Run"><a href="javascript:;">Run</a></li>
+            <li data-value="Stop"><a href="javascript:;">Stop</a></li>
+          </ul>
+        </div>
+    </div>
+</body>
+ <script type="text/javascript" >
+  $(document).on("click","[class=dropdown-menu] li:not(.divider)",function(){
+       
+        var value= $(this).attr("value");
+        if(typeof(value)!="object"){
+        }else{
+          value=value.context.value;
+        }
+        var data_value=$(this).attr("data-value");
+        if(typeof(data_value)!="undefined"){
+          value=data_value;
+        }
+        $(this).parent().parent().find("input").first().attr("value",value);
+        $(this).parent().parent().find("input").first().attr("title",($(this).children().text()));
+        $(this).parent().parent().find("input").first().change();
+        $(this).parent().parent().removeClass("open");
+    });
+
+  //ajax
+  function doAjax(thi){
+    var value = $(thi).val();
+    alert(value);
+  }
+ </script>
+</html>
